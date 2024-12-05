@@ -1,11 +1,13 @@
 import api from '../../Services/api'
 import React, { useEffect, useState } from 'react'
+import Carrinho from '../Header' // Importa o componente Menu
 import '../../App.css'
 
 function Home() {
   const [produtos, setProdutos] = useState([])
   const [carregando, setCarregando] = useState(true)
   const [contador, setContador] = useState([])
+  const [contadorCarrinho, setContadorCarrinho] = useState(0)
 
   useEffect(() => {
     async function carregandoAPI() {
@@ -21,7 +23,6 @@ function Home() {
     carregandoAPI()
   }, [])
 
-  // Exibe uma mensagem enquanto os dados estão sendo carregados
   if (carregando) {
     return (
       <div>
@@ -46,36 +47,51 @@ function Home() {
     setContador(novosContadores)
   }
 
+  function addCarrinho(index) {
+    if (contador[index] === 0) {
+      alert('Adicione um item!')
+    } else {
+      alert('Item Adicionado ao carrinho')
+      setContadorCarrinho(contadorCarrinho + 1)
+
+      const novosContadores = [...contador]
+      novosContadores[index] = 0
+      setContador(novosContadores)
+    }
+  }
+
   return (
-    <div className="container">
-      <div className="row">
-        {produtos.map((item, index) => {
-          return (
-            <div className="col-md-3 mb-4" key={item.id}>
-              <div className="card h-100">
-                <img src={item.image} className="card-img-top" alt={item.title} />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    {item.title.length > 40 ? `${item.title.substring(0, 40)}...` : item.title}
-                  </h5>
+    <div>
 
-                  <p className="card-text">
-                    {item.description.length > 100 ? `${item.description.substring(0, 100)}...` : item.description}
-                  </p>
-
-                  <strong className="card-text">{item.price}</strong>
-                  <p className="text-muted">{item.category}</p>
-
-                  <div className="botao">
-                    <button onClick={() => removerProduto(index)}>-</button>
-                    {contador[index]}
-                    <button onClick={() => adicionarProduto(index)}>+</button>
+      <Carrinho contadorCarrinho={contadorCarrinho} />
+      <div className="container">
+        <div className="row">
+          {produtos.map((item, index) => {
+            return (
+              <div className="col-md-3 mb-4" key={item.id}>
+                <div className="card h-100">
+                  <img src={item.image} className="card-img-top" alt={item.title} />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {item.title.length > 40 ? `${item.title.substring(0, 40)}...` : item.title}
+                    </h5>
+                    <p className="card-text">
+                      {item.description.length > 100 ? `${item.description.substring(0, 100)}...` : item.description}
+                    </p>
+                    <strong className="card-text">{item.price}</strong>
+                    <p className="text-muted">{item.category}</p>
+                    <div className="botao">
+                      <button onClick={() => removerProduto(index)}>-</button>
+                      {contador[index]}
+                      <button onClick={() => adicionarProduto(index)}>+</button>
+                    </div>
+                    <button onClick={() => addCarrinho(index)}>Adicionar ao Carrinho</button>
                   </div>
                 </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
     </div>
   )
