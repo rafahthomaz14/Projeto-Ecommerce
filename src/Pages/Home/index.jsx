@@ -1,6 +1,6 @@
 import api from '../../Services/api'
 import React, { useEffect, useState } from 'react'
-import Carrinho from '../Header' // Importa o componente Menu
+import Carrinho from '../Carrinho' // Importa o componente Menu
 import '../../App.css'
 
 function Home() {
