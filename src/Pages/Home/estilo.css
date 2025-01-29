@@ -20,11 +20,14 @@ img{
 }
 
 .botao button{
-    background-color: red;
+    background-color: rgb(217, 227, 227);
     margin: 4px 4px;
 }
 button{
-    background-color: gre;
+    background-color: rgb(0, 234, 0);
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
 }
 
 .botoes{
@@ -35,5 +38,11 @@ button{
 }
 
 .card{
+    border-radius: 30px;
    box-shadow: 1px 5px 15px ;
+   width:100%;
+}
+
+.card-body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

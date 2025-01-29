@@ -60,6 +60,7 @@ function Home() {
     }
   }
 
+
   return (
     <div>
 
@@ -71,15 +72,16 @@ function Home() {
               <div className="col-md-3 mb-5" key={item.id}>
                 <div className="card h-100">
                   <img src={item.image} className="card-img-top" alt={item.title} />
-                  <div className="card-body">
+                  <div className="card-body ">
                     <h5 className="card-title">
                       {item.title.length > 40 ? `${item.title.substring(0, 40)}...` : item.title}
                     </h5>
                     <p className="card-text">
                       {item.description.length > 100 ? `${item.description.substring(0, 100)}...` : item.description}
                     </p>
-                    <strong className="card-text">{item.price}</strong>
                     <p className="text-muted">{item.category}</p>
+                    <strong className="card-text"> <h3>${item.price}</h3></strong>
+                
                     <div className="botoes">
                       <button onClick={() => addCarrinho(index)}>Adicionar ao Carrinho</button>
                       <div className="botao">
@@ -88,7 +90,6 @@ function Home() {
                         <button onClick={() => adicionarProduto(index)}>+</button>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
