@@ -117,6 +117,9 @@ function Home() {
           ))}
         </div>
       </div>
+      <div className="footer">
+      <p>© 2025 - Projeto E-Commerce</p>
+      </div>
     </div>
   )
 }
