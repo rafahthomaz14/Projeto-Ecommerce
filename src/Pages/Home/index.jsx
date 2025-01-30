@@ -2,6 +2,9 @@ import api from '../../Services/api'
 import React, { useEffect, useState } from 'react'
 import Carrinho from '../Carrinho' 
 import '../Home/estilo.css'
+import { ToastContainer, toast } from 'react-toastify'
+
+import 'react-toastify/dist/ReactToastify.css'
 
 function Home() {
   const [produtos, setProdutos] = useState([])
@@ -34,7 +37,7 @@ function Home() {
 
   function removerProduto(index) {
     if (contador[index] === 0) {
-      alert('Adicione um item!')
+      toast.warn('Adicione um item!')
       return
     }
 
@@ -55,7 +58,7 @@ function Home() {
 
   function addCarrinho(index) {
     if (contador[index] === 0) {
-      alert('Adicione um item!')
+      toast.warn('Adicione um Produto !')
       return
     }
 
@@ -75,11 +78,12 @@ function Home() {
     setContador(novosContadores)
     localStorage.setItem('@contador', JSON.stringify(novosContadores))
 
-    alert('Item Adicionado ao carrinho')
+    toast.success('Adicionado com Sucesso !')
   }
 
   return (
     <div>
+      <ToastContainer autoClose = {3000}/>
       <Carrinho contadorCarrinho={contadorCarrinho} />
       <div className="container">
         <div className="row">
