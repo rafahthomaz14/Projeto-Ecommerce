@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import './estilo.css'
 export default function Resumo() {
     const [produtos, setProdutos] = useState([])
 
