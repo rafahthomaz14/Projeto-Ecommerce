@@ -83,7 +83,7 @@ function Home() {
   return (
     <div>
       <ToastContainer autoClose = {3000}/>
-      <Carrinho contadorCarrinho={contadorCarrinho} />
+      <Carrinho contadorCarrinho={contadorCarrinho}  className= '-mt-20'/>
       <div className="container">
         <div className="row">
           {produtos.map((item, index) => (
