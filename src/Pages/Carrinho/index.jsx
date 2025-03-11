@@ -5,9 +5,9 @@ import { FaShoppingCart } from 'react-icons/fa';
 export default function Carrinho({ contadorCarrinho }) {
     return (
         <>
-            <div className="qnt container text-end">
+            <div className="container -mt-14 mb-10">
                 <Link to="/carrinho">
-                    <button>
+                    <button className=' flex w-full justify-end' >
                         <FaShoppingCart />  <span>{contadorCarrinho}</span>
                     </button>
                 </Link>
