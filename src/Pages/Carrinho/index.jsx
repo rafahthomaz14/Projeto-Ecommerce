@@ -1,5 +1,4 @@
 import React from 'react'
-import '../Carrinho/estilo.css'
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa'; 
 

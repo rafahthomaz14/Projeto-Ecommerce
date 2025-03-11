@@ -1,7 +1,6 @@
 import api from '../../Services/api'
 import React, { useEffect, useState } from 'react'
 import Carrinho from '../Carrinho' 
-import '../Home/estilo.css'
 import { ToastContainer, toast } from 'react-toastify'
 
 import 'react-toastify/dist/ReactToastify.css'
